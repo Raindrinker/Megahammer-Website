@@ -8,7 +8,7 @@
       <div class="header-content"
       :style="{ padding: changingPadding + 'px'}">
 
-      <img src="../assets/megahammer1t.png" class="logo"
+      <img src="../assets/just_text.png" class="logo"
       :style="{ height: changingHeight + 'px'}">
 
 
@@ -58,6 +58,8 @@ export default {
 
   position: fixed;
 
+  z-index: 1000;
+
 }
 
 .header-content {
@@ -74,11 +76,12 @@ export default {
   position: absolute;
   z-index: -100;
 
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
 }
 
 .logo {
 
   image-rendering: crisp-edges;
+
 }
 </style>
