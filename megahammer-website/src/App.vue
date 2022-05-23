@@ -29,7 +29,7 @@
 
           <div class="about-row">
             <div>
-              <img src="./assets/vectormonke-transparency-badge.png" class="about-image">
+              <img src="./assets/donovan.jpg" class="about-image">
             </div>
             <div class="text">
               Donovan Jonk is a multi-instrumentalist, composer, and sound designer. With a Bachelor of Music in jazz studies and music technology from Minnesota State University Moorhead, and a varied career in the music industry as a teacher, performer, freelance composer, and indie record label associate, Donovan comes with the experience and instincts to help your project find its unique sonic identity.
@@ -44,41 +44,64 @@
         <div class="title">PROJECTS</div>
 
         <div class="project-list">
-          <div class="project">
+          <div class="project" v-for="project in projects" :key="project.link">
             <div class="project-inner">
-
+              <a :href="project.link">
+                <img :src="project.image" class="project-image"/>
+              </a>
+              <div class="project-inner-overlay">
+                {{project.text}}
+              </div>
             </div>
-          </div>
-          <div class="project">
-            <div class="project-inner">
-
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-inner">
-
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-inner">
-
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-inner">
-
-            </div>
-          </div>
-          <div class="project">
-            <div class="project-inner">
-
-            </div>
+            <div class="project-title">{{project.name}}</div>
           </div>
         </div>
+
+        <div class="title">OTHER FUN STUFF</div>
+
+        <div class="project-list">
+          <div class="project" v-for="project in other_fun_stuff" :key="project.link">
+            <div class="project-inner">
+              <a :href="project.link">
+                <img :src="project.image" class="project-image"/>
+              </a>
+              <div class="project-inner-overlay">
+                {{project.text}}
+              </div>
+            </div>
+            <div class="project-title">{{project.name}}</div>
+          </div>
+        </div>
+
       </div>
 
       <div class="contentsection">
         <div class="title">CONTACT</div>
+
+        <form class="contact-form">
+          <div class="input-row">
+            <div class="col">
+              <div class="label">Name:</div>
+              <div class="input-row">
+                <input v-model="name" class="input input-name"/>
+              </div>
+            </div>
+            <div class="col">
+              <div class="label">Surname:</div>
+              <div class="input-row">
+              <input v-model="surname" class="input input-surname"/>
+              </div>
+            </div>
+          </div>
+          <div class="label">Email:</div>
+          <input v-model="email" class="input input-email"/>
+          <div class="label">Subject:</div>
+          <input v-model="subject" class="input input-subject"/>
+          <div class="label">Message:</div>
+          <textarea v-model="message" class="input input-message"/>
+
+          <input type="button" text="submit">
+        </form>
       </div>
 
       <div class="footer">
@@ -97,7 +120,111 @@ export default {
   components: {PageHeader},
   data() {
     return {
-      playerhidden: true
+      name: "",
+      surname: "",
+      email: "",
+      subject: "",
+      message: "",
+      projects: [
+        {
+          image: require("./assets/projects/kaiju_wars-game.png"),
+          text: "sound design",
+          link: "http://www.foolish-mortals.net/kaijuwars",
+          name: "Kaiju Wars"
+        },
+        {
+          image: require("./assets/projects/constellations-game.png"),
+          text: "music + sound design",
+          link: "https://raindrinker.com/#/games",
+          name: "Constellations"
+        },
+        {
+          image: require("./assets/projects/chicken_journey-game.png"),
+          text: "music + sound design",
+          link: "https://store.steampowered.com/app/1837650/Chicken_Journey/",
+          name: "Chicken Journey"
+        },
+        {
+          image: require("./assets/projects/blood_nova-game.png"),
+          text: "music",
+          link: "https://store.steampowered.com/app/1810270/Blood_Nova/",
+          name: "Blood Nova"
+        },
+        {
+          image: require("./assets/projects/chiefswood_VR-game.png"),
+          text: "music + sound design",
+          link: "https://zenfri.com/three-sisters-vr-experience/",
+          name: "Three Sisters VR"
+        },
+        {
+          image: require("./assets/projects/ChiefswoodAR_Poster-small.png"),
+          text: "sound design",
+          link: "https://zenfri.com/chiefswood-park-augmented-reality-tour/",
+          name: "Chiefswood Park AR"
+        },
+        {
+          image: require("./assets/projects/YCSEAO+_game.png"),
+          text: "sound design",
+          link: "https://sebastianscaini.itch.io/ycseao-plus",
+          name: "YCSEAO"
+        },
+        {
+          image: require("./assets/projects/fancy_trash-game.png"),
+          text: "music + sound design",
+          link: "https://sebastianscaini.itch.io/fancy-trash",
+          name: "Fancy Trash"
+        },
+        {
+          image: require("./assets/projects/cheekynauts_valentine-game.png"),
+          text: "music + sound design",
+          link: "http://www.cheekynauts.com/cheeky_valentine/story_html5.html",
+          name: "Cheekynauts"
+        },
+        {
+          image: require("./assets/projects/annie_and_the_shadow_palace.png"),
+          text: "music + sound design",
+          link: "https://store.steampowered.com/app/1587220/Annie_and_the_Shadow_Palace/",
+          name: "Annie and the Shadow Palace"
+        },
+        {
+          image: require("./assets/projects/BrandinsButtons-Header.png"),
+          text: "music",
+          link: "https://store.steampowered.com/app/1480970/Brandins_Buttons/",
+          name: "Brandin's Buttons"
+        },
+        {
+          image: require("./assets/projects/the_flame-game.png"),
+          text: "music + sound design",
+          link: "https://sebastianscaini.itch.io/the-flame",
+          name: "The Flame"
+        }
+      ],
+      other_fun_stuff: [
+        {
+          image: require("./assets/projects/8bit_bundle-Raindrinker.png"),
+          text: "music + sfx asset bundle",
+          link: "https://megahammer-studios.itch.io/8-bit-music-and-sfx-megahammer-studios-vol-1",
+          name: "8-bit bundle"
+        },
+        {
+          image: require("./assets/projects/massive_corp-logo.png"),
+          text: "logo sound design",
+          link: "http://massivecorp.ca/",
+          name: "Massive Corp Logo SFX"
+        },
+        {
+          image: require("./assets/projects/Alchemy-video-01.00_00_43_13.Still001.png"),
+          text: "multimedia music + sound design",
+          link: "https://youtube.com/playlist?list=PL2L2NIX4GhktouJQHZFtAcNkJdYjaDSv7",
+          name: "Stream collab #1"
+        },
+        {
+          image: require("./assets/projects/spookcollab.00_02_15_11.Still001.png"),
+          text: "multimedia music + sound design",
+          link: "https://youtu.be/cdaQ9McZOqQ",
+          name: "Stream collab #2"
+        }
+      ]
     }
   },
   mounted() {
@@ -254,7 +381,11 @@ body {
 }
 
 .about-image {
-  max-width: 300px;
+  max-width: 250px;
+
+  border-radius: 1000px;
+  padding: 32px;
+  padding-right: 64px;
 }
 
 .video-player {
@@ -293,12 +424,88 @@ body {
 .project-inner {
   background-color: #111111;
   width: 300px;
-  height: 250px;
+  height: 170px;
 
   border-radius: 16px;
   overflow: hidden;
 
   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.project-image {
+  width: 300px;
+}
+
+.project-title {
+  padding-top: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.project-inner-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: transparent;
+
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  transition: 0.2s;
+
+  font-weight: bold;
+}
+
+.project-inner:hover .project-inner-overlay{
+
+  background-color: #000000AA;
+  color: white;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20% 100px 20%;
+}
+
+.input-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contact-form .input {
+  padding: 8px;
+  border-radius: 8px;
+  border: none !important;
+  margin: 8px;
+
+  flex-grow: 1;
+}
+
+textarea.input {
+  height: 100px;
+}
+
+.col {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.label {
+  font-weight: bold;
+  padding-left: 8px;
+  text-align: left;
 }
 
 </style>
