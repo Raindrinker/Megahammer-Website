@@ -100,11 +100,24 @@
           <div class="label">Message:</div>
           <textarea v-model="message" class="input input-message"/>
 
-          <input type="button" text="submit">
+          <div class="button-row">
+            <input type="button" value="SUBMIT" class="submit-button">
+          </div>
         </form>
       </div>
 
       <div class="footer">
+        <div class="socials">
+          <a href="https://twitter.com/Megahammeraudio">
+            <img src="./assets/twitter.png"/>
+          </a>
+          <a href="https://www.instagram.com/megahammerstudios/">
+            <img src="./assets/instagram.png"/>
+          </a>
+          <a href="https://www.youtube.com/channel/UCGbR_xC94Z0zsNQtgOMziqQ">
+            <img src="./assets/youtube.png"/>
+          </a>
+        </div>
 
       </div>
 
@@ -493,6 +506,46 @@ body {
 
 textarea.input {
   height: 100px;
+  resize: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+textarea {
+  outline: none;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+}
+
+.button-row {
+  display: flex;
+  justify-content: end;
+}
+
+.submit-button {
+  padding: 12px;
+
+  margin-top: 8px;
+  margin-right: 8px;
+
+  font-weight: bold;
+  font-size: 18px;
+
+  background-color: #111111;
+  color: #CCCCCC;
+
+  border: none;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
 }
 
 .col {
@@ -506,6 +559,21 @@ textarea.input {
   font-weight: bold;
   padding-left: 8px;
   text-align: left;
+}
+
+.socials {
+  padding-top: 32px;
+}
+
+.socials img {
+  height: 32px;
+  padding: 8px;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.socials img:hover {
+  opacity: 1;
 }
 
 </style>
