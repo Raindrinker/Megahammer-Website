@@ -78,30 +78,36 @@
       <div class="contentsection">
         <div class="title">CONTACT</div>
 
-        <form class="contact-form">
+        <form class="contact-form" method="POST" data-netlify="true"
+              data-netlify-honeypot="bot-field" name="contact-form">
+          <input type="hidden" name="form-name" value="contact-form" />
           <div class="input-row">
             <div class="col">
               <div class="label">Name:</div>
               <div class="input-row">
-                <input v-model="name" class="input input-name"/>
+                <input v-model="name" class="input input-name" name="name"/>
               </div>
             </div>
             <div class="col">
               <div class="label">Surname:</div>
               <div class="input-row">
-              <input v-model="surname" class="input input-surname"/>
+              <input v-model="surname" class="input input-surname" name="surname"/>
               </div>
             </div>
           </div>
           <div class="label">Email:</div>
-          <input v-model="email" class="input input-email"/>
+          <input v-model="email" class="input input-email" name="email"/>
           <div class="label">Subject:</div>
-          <input v-model="subject" class="input input-subject"/>
+          <input v-model="subject" class="input input-subject" name="subject"/>
           <div class="label">Message:</div>
-          <textarea v-model="message" class="input input-message"/>
+          <textarea v-model="message" class="input input-message" name="message"/>
+
+          <div class="field">
+            <div data-netlify-recaptcha="true"></div>
+          </div>
 
           <div class="button-row">
-            <input type="button" value="SUBMIT" class="submit-button">
+            <input type="submit" value="SUBMIT" class="submit-button">
           </div>
         </form>
       </div>
