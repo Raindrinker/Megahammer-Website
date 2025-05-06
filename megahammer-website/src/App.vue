@@ -402,9 +402,9 @@ body {
 .about-image {
   max-width: 250px;
 
-  border-radius: 1000px;
+  border-radius: 50%;
   padding: 32px;
-  padding-right: 64px;
+  margin-right: 64px;
 }
 
 .video-player {
